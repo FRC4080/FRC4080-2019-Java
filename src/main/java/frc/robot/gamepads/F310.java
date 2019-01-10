@@ -8,9 +8,12 @@
 package frc.robot.gamepads;
 
 /**
- * Add your docs here.
+ * Maps button and axis index numbers to "descriptive" variable names.
+ * For use with the WPILIB GenericHID Class.
+ * 
  */
 public final class F310 {
+    // *** Buttons ***
     // Right side (letter) buttons.
     public static final int A_BTN = 0;
     public static final int B_BTN = 1;
@@ -28,4 +31,17 @@ public final class F310 {
     // Stick buttons
     public static final int LS_BTN = 8;
     public static final int RS_BTN = 9;
+
+    // *** Axis ***
+    // Sticks
+    public static final int LEFT_Y = 1;
+    public static final int LEFT_X = 0;
+    public static final int RIGHT_Y = 5;
+    public static final int RIGHT_X = 4;
+
+    // Triggers
+    public static final int LEFT_TRG = 2;
+    public static final int RIGHT_TRG = 3;
+
+
 }
