@@ -24,6 +24,7 @@ public class HatchTool extends Subsystem {
 
 
   public HatchTool() {
+    super("Hatch Tool");
     claw_solenoid = new DoubleSolenoid(RobotMap.HATCH_CLAW_FWD, RobotMap.HATCH_CLAW_REV);
   }
 
