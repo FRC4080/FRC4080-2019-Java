@@ -7,7 +7,11 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Mechanism for retrieving hatch panels from feeder and depositing on low goals.
@@ -16,11 +20,17 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class HatchTool extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  private final DoubleSolenoid claw_solenoid;
+
+
+  public HatchTool() {
+    claw_solenoid = new DoubleSolenoid(RobotMap.HATCH_CLAW_FWD, RobotMap.HATCH_CLAW_REV);
+  }
 
   @Override
   public void initDefaultCommand() {
     // Stow hatch tool
-    stowTool();
+    // Grab hatch
   }
 
   public void ejectHatch() {
@@ -40,6 +50,13 @@ public class HatchTool extends Subsystem {
 
   public void releaseHatch() {
     // close hatch claw
-    // turn a double solenoid on
+    // turn a double solenoid forward
+    claw_solenoid.set(Value.kForward);
+  }
+
+  public void grabHatch() {
+    // open hatch claw
+    // turn a double solenoid reverse
+    claw_solenoid.set(Value.kReverse);
   }
 }
