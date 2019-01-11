@@ -32,8 +32,6 @@ public class HatchTool extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    // Stow hatch tool
-    // Grab hatch
   }
 
   public void ejectHatch() {
