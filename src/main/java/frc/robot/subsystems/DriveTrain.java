@@ -8,8 +8,10 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Robot drivetrain. Will be 4 REV NEOs (possibly + 2 MiniCIMs).
@@ -21,6 +23,19 @@ public class DriveTrain extends Subsystem {
   private final CANSparkMax leftFollower;
   private final CANSparkMax rightMaster;
   private final CANSparkMax rightFollower;
+
+  public DriveTrain() {
+    super("Drivetrain");
+    leftMaster = new CANSparkMax(RobotMap.L_DRIVE_MASTER_CAN,
+      CANSparkMaxLowLevel.MotorType.kBrushless);
+    leftFollower = new CANSparkMax(RobotMap.L_DRIVE_FOLLOWER_CAN,
+      CANSparkMaxLowLevel.MotorType.kBrushless);
+
+    rightMaster = new CANSparkMax(RobotMap.R_DRIVE_MASTER_CAN,
+      CANSparkMaxLowLevel.MotorType.kBrushless);
+    rightFollower = new CANSparkMax(RobotMap.R_DRIVE_FOLLOWER_CAN,
+      CANSparkMaxLowLevel.MotorType.kBrushless);
+  }
 
   @Override
   public void initDefaultCommand() {
