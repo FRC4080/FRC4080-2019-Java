@@ -14,9 +14,13 @@ package frc.robot;
  * floating around.
  */
 public final class RobotMap {
-  // *** Drive Motors ***
+  // *** Drive Motors CAN ID ***
 
-  // *** Solenoid Ports ***
+  // *** PCM Ports ***
+  // Double Solenoid
   public static final int HATCH_CLAW_FWD = 0;
-  public static final int HATCH_CLAW_REV = 1;
+  public static final int HATCH_CLAW_REV = 1; 
+  
+  // Single solenoid
+  public static final int HATCH_TOLL_EXTEND = 2;
 }
