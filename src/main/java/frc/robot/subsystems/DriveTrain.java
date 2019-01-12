@@ -12,7 +12,7 @@ import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * Robot drive train. Will be 4 REV NEOs (possibly + 2 MiniCIMs).
+ * Robot drivetrain. Will be 4 REV NEOs (possibly + 2 MiniCIMs).
  * All controllers on CAN bus.
  */
 public class DriveTrain extends Subsystem {
