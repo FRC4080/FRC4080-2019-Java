@@ -30,9 +30,8 @@ public class ManualDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double left = driverJoystick.getRawAxis(F310.LEFT_Y);
-    double right = driverJoystick.getRawAxis(F310.RIGHT_Y);
-    Robot.driveTrain.differentialDrive(left, right);
+    Robot.driveTrain.differentialDrive(driverJoystick.getRawAxis(F310.LEFT_Y),
+                                     driverJoystick.getRawAxis(F310.RIGHT_Y));
   }
 
   // Make this return true when this Command no longer needs to run execute()
