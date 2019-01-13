@@ -64,4 +64,14 @@ public class DriveTrain extends Subsystem {
   @Override
   public void initDefaultCommand() {
   }
+
+  /**
+   * Used for basic differential steering.
+   * @param left Left side power +1 to -1 (+%100 to -%100)
+   * @param right Right side power +1 to -1 (+%100 to -%100)
+   */
+  public void differentialDrive(double left, double right) {
+    leftMaster.set(left);
+    rightMaster.set(right);
+  }
 }
