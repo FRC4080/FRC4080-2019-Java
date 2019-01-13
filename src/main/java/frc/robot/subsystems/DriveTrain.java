@@ -12,6 +12,7 @@ import com.revrobotics.CANSparkMaxLowLevel;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.drivetrain.ManualDrive;
 
 /**
  * Robot drivetrain. Will be 4 REV NEOs (possibly + 2 MiniCIMs).
@@ -63,6 +64,7 @@ public class DriveTrain extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
+    setDefaultCommand(new ManualDrive());
   }
 
   /**
