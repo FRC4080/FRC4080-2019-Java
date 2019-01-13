@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -41,6 +43,8 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new HatchToolInit());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+    UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+                camera.setResolution(320, 240);
   }
 
   /**
