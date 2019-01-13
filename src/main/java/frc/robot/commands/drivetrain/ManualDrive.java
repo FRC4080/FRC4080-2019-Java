@@ -7,12 +7,17 @@
 
 package frc.robot.commands.drivetrain;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.gamepads.F310;
 /*
 * Driver contorlled (Manual) driving.
 */
 public class ManualDrive extends Command {
+
+  private Joystick driverJoystick = Robot.m_oi.getDriverJoystick();
+
   public ManualDrive() {
     requires(Robot.driveTrain);
   }
@@ -25,6 +30,9 @@ public class ManualDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    double left = driverJoystick.getRawAxis(F310.LEFT_Y);
+    double right = driverJoystick.getRawAxis(F310.RIGHT_Y);
+    Robot.driveTrain.differentialDrive(left, right);
   }
 
   // Make this return true when this Command no longer needs to run execute()
