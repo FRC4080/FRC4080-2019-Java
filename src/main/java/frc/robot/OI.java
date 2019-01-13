@@ -19,6 +19,7 @@ import frc.robot.commands.hatchtool.SetHatchClaw;
 public class OI {
 
   private final Joystick operatorJoystick = new Joystick(0);
+  private final Joystick driverJoystick = new Joystick(1);
   private final Button operatorABtn = new JoystickButton(operatorJoystick, F310.A_BTN),
     operatorBBtn = new JoystickButton(operatorJoystick, F310.B_BTN),
     operatorYButton = new JoystickButton(operatorJoystick, F310.Y_BTN);
@@ -51,5 +52,9 @@ public class OI {
 
   public Joystick getOperatorJoystick() {
     return operatorJoystick;
+  }
+
+  public Joystick getDriverJoystick() {
+    return driverJoystick;
   }
 }
