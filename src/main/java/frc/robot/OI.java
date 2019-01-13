@@ -20,11 +20,13 @@ public class OI {
 
   private final Joystick operatorJoystick = new Joystick(0);
   private final Button operatorABtn = new JoystickButton(operatorJoystick, F310.A_BTN),
-    operatorBBtn = new JoystickButton(operatorJoystick, F310.B_BTN);
+    operatorBBtn = new JoystickButton(operatorJoystick, F310.B_BTN),
+    operatorYButton = new JoystickButton(operatorJoystick, F310.Y_BTN);
 
   public OI() {
     operatorABtn.whenPressed(new SetHatchClaw(SetHatchClaw.RELEASE));
     operatorBBtn.whenPressed(new SetHatchClaw(SetHatchClaw.GRAB));
+    
   }
   
   // There are a few additional built in buttons you can use. Additionally,
