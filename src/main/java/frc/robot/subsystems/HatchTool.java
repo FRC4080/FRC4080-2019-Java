@@ -7,9 +7,7 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -22,13 +20,13 @@ public class HatchTool extends Subsystem {
   // here. Call these from Commands.
 
   // ** Components **
-  private final DoubleSolenoid claw_solenoid;
+  private final Solenoid claw_solenoid;
   private final Solenoid extender_solenoid;
 
 
   public HatchTool() {
     super("Hatch Tool");
-    claw_solenoid = new DoubleSolenoid(RobotMap.HATCH_CLAW_FWD, RobotMap.HATCH_CLAW_REV);
+    claw_solenoid = new Solenoid(RobotMap.HATCH_CLAW_GRAB);
     extender_solenoid = new Solenoid(RobotMap.HATCH_TOLL_EXTEND);
   }
 
@@ -56,12 +54,12 @@ public class HatchTool extends Subsystem {
   public void releaseHatch() {
     // close hatch claw
     // turn a double solenoid forward
-    claw_solenoid.set(Value.kForward);
+    claw_solenoid.set(false);
   }
 
   public void grabHatch() {
     // open hatch claw
     // turn a double solenoid reverse
-    claw_solenoid.set(Value.kReverse);
+    claw_solenoid.set(true);
   }
 }
