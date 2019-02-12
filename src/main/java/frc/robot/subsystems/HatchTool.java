@@ -41,11 +41,6 @@ public class HatchTool extends Subsystem {
     setDefaultCommand(new HatchToolInit());
   }
 
-  public void ejectHatch() {
-    // Push hatch away
-    // exstend tool and release hatch
-  }
-
   public void stowTool() {
     // retract into frame perimeter
     // set pcm ports for a single to off
