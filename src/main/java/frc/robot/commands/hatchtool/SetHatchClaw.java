@@ -12,6 +12,7 @@ import frc.robot.Robot;
 
 public class SetHatchClaw extends Command {
 
+  // potential settings
   public static final Boolean GRAB = true;
   public static final Boolean RELEASE = false;
   private final Boolean setting;
