@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.balltool.InitBallTool;
 
 /**
  * Add your docs here.
@@ -32,6 +33,14 @@ public class BallTool extends Subsystem {
   public void initDefaultCommand() {
     
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new InitBallTool());
+  }
+
+  public void extendLauncher() {
+    launchSolenoid.set(true);
+  }
+
+  public void retractLauncher() {
+    launchSolenoid.set(false);
   }
 }
