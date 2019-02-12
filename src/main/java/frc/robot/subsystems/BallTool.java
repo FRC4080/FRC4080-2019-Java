@@ -43,4 +43,12 @@ public class BallTool extends Subsystem {
   public void retractLauncher() {
     launchSolenoid.set(false);
   }
+
+  public void elevationUp() {
+    elevation_solenoid.set(true);
+  }
+
+  public void elevationDown() {
+    elevation_solenoid.set(false);
+  }
 }
