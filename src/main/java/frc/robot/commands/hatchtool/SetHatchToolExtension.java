@@ -12,7 +12,7 @@ import frc.robot.Robot;
 import frc.robot.subsystems.HatchTool;
 
 
-public class SetHatchToolExtention extends Command {
+public class SetHatchToolExtension extends Command {
 
   // potential settings
   public static final int IN = 0;
@@ -22,7 +22,7 @@ public class SetHatchToolExtention extends Command {
 
   private static final HatchTool HATCH_TOOL = Robot.hatchTool;
 
-  public SetHatchToolExtention(int setting) {
+  public SetHatchToolExtension(int setting) {
     this.setting = setting;
     requires(Robot.hatchTool);
   }
