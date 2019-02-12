@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.gamepads.F310;
-import frc.robot.commands.hatchtool.SetHatchClaw;
+import frc.robot.commands.hatchtool.*;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -27,6 +27,7 @@ public class OI {
   public OI() {
     operatorABtn.whenPressed(new SetHatchClaw(SetHatchClaw.RELEASE));
     operatorBBtn.whenPressed(new SetHatchClaw(SetHatchClaw.GRAB));
+    operatorYButton.whenPressed(new SetHatchToolExtension(SetHatchToolExtension.TOGGLE));
     
   }
   
