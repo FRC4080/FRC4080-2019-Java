@@ -40,7 +40,7 @@ public class SetHatchToolExtension extends Command {
         break;
 
       case 2:
-        if(HATCH_TOOL.getIsExtended() == true) {
+        if(HATCH_TOOL.getIsExtended()) {
           HATCH_TOOL.stowTool();
         } else {
           HATCH_TOOL.exstendTool();
