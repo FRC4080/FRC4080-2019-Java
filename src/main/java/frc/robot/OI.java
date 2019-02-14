@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.gamepads.F310;
+import frc.robot.commands.balltool.SetLauncherElevation;
 import frc.robot.commands.hatchtool.*;
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,12 +23,14 @@ public class OI {
   private final Joystick driverJoystick = new Joystick(1);
   private final Button operatorABtn = new JoystickButton(operatorJoystick, F310.A_BTN),
     operatorBBtn = new JoystickButton(operatorJoystick, F310.B_BTN),
+    operatorXBtn = new JoystickButton(operatorJoystick, F310.X_BTN),
     operatorYButton = new JoystickButton(operatorJoystick, F310.Y_BTN);
 
   public OI() {
     operatorABtn.whenPressed(new SetHatchClaw(SetHatchClaw.RELEASE));
     operatorBBtn.whenPressed(new SetHatchClaw(SetHatchClaw.GRAB));
     operatorYButton.whenPressed(new SetHatchToolExtension(SetHatchToolExtension.TOGGLE));
+    operatorXBtn.whenPressed(new SetLauncherElevation(SetLauncherElevation.TOGGLE));
     
   }
   
