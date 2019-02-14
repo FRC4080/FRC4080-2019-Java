@@ -60,6 +60,10 @@ public class DriveTrain extends Subsystem {
     // set speed to 0
     leftMaster.set(0);
     rightMaster.set(0);
+
+    // set deadbands
+    leftMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, 0.08);
+    rightMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, 0.08);
   }
 
   @Override
