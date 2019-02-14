@@ -26,7 +26,10 @@ public class DriveTrain extends Subsystem {
   private final CANSparkMax rightFollower;
 
   // current limmit values
-  private final int stallLimit = 35, freeLimit = 45;
+  private static final int STALL_LIMIT = 35, FREE_LIMIT = 45;
+
+  // motor controller input deadband
+  private static final double DEADBAND = 0.08;
 
   public DriveTrain() {
     super("Drivetrain");
@@ -46,10 +49,10 @@ public class DriveTrain extends Subsystem {
     rightFollower.follow(rightMaster);
 
     // set current limits
-    leftMaster.setSmartCurrentLimit(stallLimit, freeLimit);
-    leftFollower.setSmartCurrentLimit(stallLimit, freeLimit);
-    rightMaster.setSmartCurrentLimit(stallLimit, freeLimit);
-    rightFollower.setSmartCurrentLimit(stallLimit, freeLimit);
+    leftMaster.setSmartCurrentLimit(STALL_LIMIT, FREE_LIMIT);
+    leftFollower.setSmartCurrentLimit(STALL_LIMIT, FREE_LIMIT);
+    rightMaster.setSmartCurrentLimit(STALL_LIMIT, FREE_LIMIT);
+    rightFollower.setSmartCurrentLimit(STALL_LIMIT, FREE_LIMIT);
 
     // set inversion
     leftMaster.setInverted(false);
@@ -62,8 +65,8 @@ public class DriveTrain extends Subsystem {
     rightMaster.set(0);
 
     // set deadbands
-    leftMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, 0.08);
-    rightMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, 0.08);
+    leftMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, DEADBAND);
+    rightMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, DEADBAND);
   }
 
   @Override
