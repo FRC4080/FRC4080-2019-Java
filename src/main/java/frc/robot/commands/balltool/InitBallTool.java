@@ -30,5 +30,6 @@ public class InitBallTool extends CommandGroup {
     // e.g. if Command1 requires chassis, and Command2 requires arm,
     // a CommandGroup containing them would require both the chassis and the
     // arm.
+    addParallel(new SetLauncherElevation(SetLauncherElevation.UP));
   }
 }
