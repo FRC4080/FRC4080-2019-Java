@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.DriverConnAuto;
 import frc.robot.commands.hatchtool.HatchToolInit;
 import frc.robot.subsystems.BallTool;
 import frc.robot.subsystems.DriveTrain;
@@ -42,11 +43,11 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new HatchToolInit());
+    m_chooser.setDefaultOption("Default Auto (driver control)", new DriverConnAuto());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-                camera.setResolution(320, 240);
+                camera.setResolution(160, 120);
   }
 
   /**
