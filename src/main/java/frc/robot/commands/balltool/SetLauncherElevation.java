@@ -9,16 +9,46 @@ package frc.robot.commands.balltool;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.BallTool;
 
 public class SetLauncherElevation extends Command {
-  public SetLauncherElevation() {
-    // Use requires() here to declare subsystem dependencies
+
+  // potential settings
+  public static final int UP = 0;
+  public static final int DOWN = 1;
+  public static final int TOGGLE = 2;
+  private final int setting;
+
+  private static final BallTool BALL_TOOL = Robot.ballTool;
+
+  public SetLauncherElevation(int setting) {
     requires(Robot.ballTool);
+    this.setting = setting;
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    switch (this.setting) {
+      case 0:
+        BALL_TOOL.elevationUp();
+        break;
+      
+      case 1:
+        BALL_TOOL.elevationDown();
+        break;
+
+      case 2:
+        if (BALL_TOOL.isElevationUp()) {
+          BALL_TOOL.elevationDown();
+        } else {
+          BALL_TOOL.elevationUp();
+        }
+        break;
+
+      default:
+        break;
+    }
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -29,7 +59,7 @@ public class SetLauncherElevation extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
