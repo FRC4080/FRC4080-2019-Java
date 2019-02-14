@@ -10,7 +10,6 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.balltool.InitBallTool;
 
 /**
  * Add your docs here.
@@ -23,17 +22,22 @@ public class BallTool extends Subsystem {
   private final Solenoid elevation_solenoid;
   private final Solenoid launchSolenoid;
 
+  // Ball Tool States
+  private Boolean isElevationUp; // tells me if the elevation has been set to be up or down
+
   public BallTool() {
     super("Ball Tool");
     elevation_solenoid = new Solenoid(RobotMap.LAUNCHER_UP);
     launchSolenoid = new Solenoid(RobotMap.LAUNCH_BALL);
+
+    elevation_solenoid.set(false);
+    isElevationUp = false;
   }
 
   @Override
   public void initDefaultCommand() {
     
     // Set the default command for a subsystem here.
-    setDefaultCommand(new InitBallTool());
   }
 
   public void extendLauncher() {
@@ -46,9 +50,15 @@ public class BallTool extends Subsystem {
 
   public void elevationUp() {
     elevation_solenoid.set(true);
+    this.isElevationUp = true;
   }
 
   public void elevationDown() {
     elevation_solenoid.set(false);
+    this.isElevationUp = false;
+  }
+
+  public boolean isElevationUp() {
+    return this.isElevationUp;
   }
 }
