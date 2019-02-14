@@ -19,6 +19,7 @@ import frc.robot.commands.hatchtool.HatchToolInit;
 import frc.robot.subsystems.BallTool;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.HatchTool;
+import frc.robot.subsystems.LiftJack;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +32,7 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain = new DriveTrain();
   public static HatchTool hatchTool = new HatchTool();
   public static BallTool ballTool = new BallTool();
+  public static LiftJack liftJack = new LiftJack();
   public static OI m_oi;
 
   Command m_autonomousCommand;
