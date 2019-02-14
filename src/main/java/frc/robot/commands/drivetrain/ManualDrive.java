@@ -11,15 +11,20 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.gamepads.F310;
+import frc.robot.subsystems.LiftJack;
 /*
 * Driver contorlled (Manual) driving.
 */
 public class ManualDrive extends Command {
 
   private Joystick driverJoystick = Robot.m_oi.getDriverJoystick();
+  private LiftJack liftJack = Robot.liftJack;
+
+  private final double JACK_DOWN_SPEED;
 
   public ManualDrive() {
     requires(Robot.driveTrain);
+    this.JACK_DOWN_SPEED = 0.75;
   }
 
   // Called just before this Command runs the first time
@@ -30,8 +35,15 @@ public class ManualDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveTrain.differentialDrive(driverJoystick.getRawAxis(F310.LEFT_Y),
-                                     driverJoystick.getRawAxis(F310.RIGHT_Y));
+    if(liftJack.jackExtendedState()){
+      Robot.driveTrain.differentialDrive(driverJoystick.getRawAxis(F310.LEFT_Y) * JACK_DOWN_SPEED,
+                                     driverJoystick.getRawAxis(F310.RIGHT_Y) * JACK_DOWN_SPEED);
+    } else {
+      Robot.driveTrain.differentialDrive(driverJoystick.getRawAxis(F310.LEFT_Y),
+                                    driverJoystick.getRawAxis(F310.RIGHT_Y));
+    }
+
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()
