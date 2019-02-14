@@ -36,4 +36,8 @@ public class LiftJack extends Subsystem {
   public void retractJack() {
     jack_solenoid.set(false);
   }
+
+  public boolean jackExtendedState() {
+    return jack_solenoid.get();
+  }
 }
