@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.gamepads.F310;
 import frc.robot.commands.balltool.SetLauncherElevation;
 import frc.robot.commands.hatchtool.*;
+import frc.robot.commands.liftjack.SetLift;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -24,27 +25,20 @@ public class OI {
   private final Button operatorABtn = new JoystickButton(operatorJoystick, F310.A_BTN),
     operatorBBtn = new JoystickButton(operatorJoystick, F310.B_BTN),
     operatorXBtn = new JoystickButton(operatorJoystick, F310.X_BTN),
-    operatorYButton = new JoystickButton(operatorJoystick, F310.Y_BTN);
+    operatorYButton = new JoystickButton(operatorJoystick, F310.Y_BTN),
+    driverRTrigger = new JoystickButton(driverJoystick, F310.RIGHT_TRG);
 
   public OI() {
     operatorABtn.whenPressed(new SetHatchClaw(SetHatchClaw.RELEASE));
     operatorBBtn.whenPressed(new SetHatchClaw(SetHatchClaw.GRAB));
     operatorYButton.whenPressed(new SetHatchToolExtension(SetHatchToolExtension.TOGGLE));
     operatorXBtn.whenPressed(new SetLauncherElevation(SetLauncherElevation.TOGGLE));
-    
+    driverRTrigger.whenPressed(new SetLift(SetLift.TOGGLE));
   }
   
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
-
-  //// TRIGGERING COMMANDS WITH BUTTONS
-  // Once you have a button, it's trivial to bind it to a button in one of
-  // three ways:
-
-  // Start the command when the button is pressed and let it run the command
-  // until it is finished as determined by it's isFinished method.
-  // button.whenPressed(new ExampleCommand());
 
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
