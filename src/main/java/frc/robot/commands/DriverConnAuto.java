@@ -11,14 +11,16 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.commands.balltool.InitBallTool;
 import frc.robot.commands.drivetrain.ManualDrive;
 import frc.robot.commands.hatchtool.HatchToolInit;
+import frc.robot.commands.liftjack.InitLift;
 
 public class DriverConnAuto extends CommandGroup {
   /**
-   * Add your docs here.
+   * Set all subsystems to the correct starting state.
    */
   public DriverConnAuto() {
     addParallel(new InitBallTool());
     addParallel(new HatchToolInit());
+    addParallel(new InitLift());
     addParallel(new ManualDrive());
   }
 }
