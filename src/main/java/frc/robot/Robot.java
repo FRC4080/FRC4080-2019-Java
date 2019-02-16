@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.DashCommands;
 import frc.robot.commands.DriverConnAuto;
 import frc.robot.commands.hatchtool.HatchToolInit;
 import frc.robot.subsystems.BallTool;
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
   public static BallTool ballTool = new BallTool();
   public static LiftJack liftJack = new LiftJack();
   public static OI m_oi;
+  public static DashCommands dashCommands = new DashCommands();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
