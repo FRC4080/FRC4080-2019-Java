@@ -22,7 +22,6 @@ public class ManualDrive extends Command {
 
   private final double JACK_DOWN_SPEED;
   public static final double REDUCED_SPEED_VALUE = 0.75;
-  public static final double NORMAL_SPEED = 1.0;
   private final double SPEED_MULTIPLYER;
 
   public ManualDrive(double speedMultiplyer) {
@@ -34,7 +33,7 @@ public class ManualDrive extends Command {
   public ManualDrive() {
     requires(Robot.driveTrain);
     this.JACK_DOWN_SPEED = 0.5;
-    this.SPEED_MULTIPLYER = NORMAL_SPEED;
+    this.SPEED_MULTIPLYER = 1d;
   }
 
   // Called just before this Command runs the first time
