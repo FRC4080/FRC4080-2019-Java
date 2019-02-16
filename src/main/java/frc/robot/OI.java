@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.gamepads.F310;
 import frc.robot.commands.balltool.SetLauncherElevation;
+import frc.robot.commands.drivetrain.ManualDrive;
 import frc.robot.commands.hatchtool.*;
 import frc.robot.commands.liftjack.SetLift;
 /**
@@ -26,7 +27,8 @@ public class OI {
     operatorBBtn = new JoystickButton(operatorJoystick, F310.B_BTN),
     operatorXBtn = new JoystickButton(operatorJoystick, F310.X_BTN),
     operatorYButton = new JoystickButton(operatorJoystick, F310.Y_BTN),
-    driverRTrigger = new JoystickButton(driverJoystick, F310.RIGHT_TRG);
+    driverRTrigger = new JoystickButton(driverJoystick, F310.RIGHT_TRG),
+    driverLTrigger = new JoystickButton(driverJoystick, F310.LEFT_TRG);
 
   public OI() {
     operatorABtn.whenPressed(new SetHatchClaw(SetHatchClaw.RELEASE));
@@ -34,6 +36,7 @@ public class OI {
     operatorYButton.whenPressed(new SetHatchToolExtension(SetHatchToolExtension.TOGGLE));
     operatorXBtn.whenPressed(new SetLauncherElevation(SetLauncherElevation.TOGGLE));
     driverRTrigger.whenPressed(new SetLift(SetLift.TOGGLE));
+    driverLTrigger.whileHeld(new ManualDrive(ManualDrive.REDUCED_SPEED_VALUE));
   }
   
   // There are a few additional built in buttons you can use. Additionally,
