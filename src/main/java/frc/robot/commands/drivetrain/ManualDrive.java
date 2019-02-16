@@ -21,8 +21,8 @@ public class ManualDrive extends Command {
   private LiftJack liftJack = Robot.liftJack;
 
   private final double JACK_DOWN_SPEED;
-  public final double REDUCED_SPEED_VALUE = 0.75;
-  public final double NORMAL_SPEED = 1.0;
+  public static final double REDUCED_SPEED_VALUE = 0.75;
+  public static final double NORMAL_SPEED = 1.0;
   private final double SPEED_MULTIPLYER;
 
   public ManualDrive(double speedMultiplyer) {
