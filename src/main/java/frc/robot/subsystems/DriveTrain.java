@@ -85,5 +85,9 @@ public class DriveTrain extends Subsystem {
   public void differentialDrive(double left, double right) {
     leftMaster.set(left);
     rightMaster.set(right);
+    SmartDashboard.putNumber("Left Motor % Power", left);
+    SmartDashboard.putNumber("Right Motor % Power", right);
+    SmartDashboard.putNumber("Left Motor rpm", leftMaster.getEncoder().getVelocity());
+    SmartDashboard.putNumber("Right Motor rpm", rightMaster.getEncoder().getVelocity());
   }
 }
