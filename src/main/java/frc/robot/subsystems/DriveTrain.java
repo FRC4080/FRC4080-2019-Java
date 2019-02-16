@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -36,14 +37,14 @@ public class DriveTrain extends Subsystem {
     super("Drivetrain");
     // set motor type and CAN port
     leftMaster = new CANSparkMax(RobotMap.L_DRIVE_MASTER_CAN,
-      CANSparkMaxLowLevel.MotorType.kBrushless);
+      MotorType.kBrushless);
     leftFollower = new CANSparkMax(RobotMap.L_DRIVE_FOLLOWER_CAN,
-      CANSparkMaxLowLevel.MotorType.kBrushless);
+      MotorType.kBrushless);
 
     rightMaster = new CANSparkMax(RobotMap.R_DRIVE_MASTER_CAN,
-      CANSparkMaxLowLevel.MotorType.kBrushless);
+      MotorType.kBrushless);
     rightFollower = new CANSparkMax(RobotMap.R_DRIVE_FOLLOWER_CAN,
-      CANSparkMaxLowLevel.MotorType.kBrushless);
+      MotorType.kBrushless);
 
     // set followers
     leftFollower.follow(leftMaster);
