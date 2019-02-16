@@ -58,9 +58,7 @@ public class DriveTrain extends Subsystem {
 
     // set inversion
     leftMaster.setInverted(false);
-    leftFollower.setInverted(false);
     rightMaster.setInverted(true); 
-    rightFollower.setInverted(true);
 
     // set speed to 0
     leftMaster.set(0);
