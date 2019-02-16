@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 
 /**
@@ -21,6 +22,7 @@ public class LiftJack extends Subsystem {
   public LiftJack() {
     super("Lift Jack");
     jack_solenoid = new Solenoid(RobotMap.LIFT_ROBOT);
+    SmartDashboard.putData(this);
   }
 
   @Override

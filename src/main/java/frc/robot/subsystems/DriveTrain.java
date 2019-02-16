@@ -11,6 +11,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.commands.drivetrain.ManualDrive;
 
@@ -67,6 +68,8 @@ public class DriveTrain extends Subsystem {
     // set deadbands
     leftMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, DEADBAND);
     rightMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, DEADBAND);
+
+    SmartDashboard.putData(this);
   }
 
   @Override
