@@ -29,12 +29,14 @@ import frc.robot.subsystems.LiftJack;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static DriveTrain driveTrain = new DriveTrain();
-  public static HatchTool hatchTool = new HatchTool();
-  public static BallTool ballTool = new BallTool();
-  public static LiftJack liftJack = new LiftJack();
+
+  public static DriveTrain driveTrain;
+  public static HatchTool hatchTool;
+  public static BallTool ballTool;
+  public static LiftJack liftJack;
+  public static DashCommands dashCommands;
+  
   public static OI m_oi;
-  public static DashCommands dashCommands = new DashCommands();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -45,6 +47,13 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+
+    driveTrain = new DriveTrain();
+    hatchTool  = new HatchTool();
+    ballTool = new BallTool();
+    liftJack = new LiftJack();
+    dashCommands = new DashCommands();
+
     m_oi = new OI();
     m_chooser.setDefaultOption("Default Auto (driver control)", new DriverConnAuto());
     // chooser.addOption("My Auto", new MyAutoCommand());
