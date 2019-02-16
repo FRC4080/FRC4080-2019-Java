@@ -87,7 +87,9 @@ public class DriveTrain extends Subsystem {
     rightMaster.set(right);
     SmartDashboard.putNumber("Left Motor % Power", left);
     SmartDashboard.putNumber("Right Motor % Power", right);
-    SmartDashboard.putNumber("Left Motor rpm", leftMaster.getEncoder().getVelocity());
-    SmartDashboard.putNumber("Right Motor rpm", rightMaster.getEncoder().getVelocity());
+    SmartDashboard.putNumber("Left Motor RPM", leftMaster.getEncoder().getVelocity());
+    SmartDashboard.putNumber("Right Motor RPM", rightMaster.getEncoder().getVelocity());
+    SmartDashboard.putNumber("Left Motor Current", leftMaster.getOutputCurrent());
+    SmartDashboard.putNumber("Right Motor Current", rightMaster.getOutputCurrent());
   }
 }
