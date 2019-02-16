@@ -21,10 +21,20 @@ public class ManualDrive extends Command {
   private LiftJack liftJack = Robot.liftJack;
 
   private final double JACK_DOWN_SPEED;
+  public final double REDUCED_SPEED_VALUE = 0.75;
+  public final double NORMAL_SPEED = 1.0;
+  private final double SPEED_MULTIPLYER;
+
+  public ManualDrive(double speedMultiplyer) {
+    requires(Robot.driveTrain);
+    this.JACK_DOWN_SPEED = 0.5;
+    this.SPEED_MULTIPLYER = speedMultiplyer;
+  }
 
   public ManualDrive() {
     requires(Robot.driveTrain);
-    this.JACK_DOWN_SPEED = 0.75;
+    this.JACK_DOWN_SPEED = 0.5;
+    this.SPEED_MULTIPLYER = NORMAL_SPEED;
   }
 
   // Called just before this Command runs the first time
@@ -39,8 +49,8 @@ public class ManualDrive extends Command {
       Robot.driveTrain.differentialDrive(driverJoystick.getRawAxis(F310.LEFT_Y) * JACK_DOWN_SPEED,
                                      driverJoystick.getRawAxis(F310.RIGHT_Y) * JACK_DOWN_SPEED);
     } else {
-      Robot.driveTrain.differentialDrive(driverJoystick.getRawAxis(F310.LEFT_Y),
-                                    driverJoystick.getRawAxis(F310.RIGHT_Y));
+      Robot.driveTrain.differentialDrive(driverJoystick.getRawAxis(F310.LEFT_Y) * SPEED_MULTIPLYER,
+                                    driverJoystick.getRawAxis(F310.RIGHT_Y) * SPEED_MULTIPLYER);
     }
 
     
