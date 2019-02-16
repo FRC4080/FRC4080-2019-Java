@@ -16,7 +16,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DashCommands;
 import frc.robot.commands.DriverConnAuto;
-import frc.robot.commands.hatchtool.HatchToolInit;
 import frc.robot.subsystems.BallTool;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.HatchTool;
