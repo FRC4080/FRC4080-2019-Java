@@ -7,9 +7,9 @@
 
 package frc.robot.commands.balltool;
 
-import java.util.Date;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.util.BasicTimer;
 import frc.robot.subsystems.BallTool;
 
 public class LaunchBall extends Command {
@@ -17,12 +17,13 @@ public class LaunchBall extends Command {
   private final BallTool BALL_TOOL = Robot.ballTool;
 
   private final int EXTEND_WAIT_MILLI; // how long should we wait to retract?
-  private long targetTime;
-  Date date = new Date();
+
+  private BasicTimer timer;
 
   public LaunchBall() {
     requires(BALL_TOOL);
     this.EXTEND_WAIT_MILLI = 1000; // wait for 1 second before retracting
+    this.timer = new BasicTimer(this.EXTEND_WAIT_MILLI);
   }
 
   // Called just before this Command runs the first time
@@ -30,7 +31,7 @@ public class LaunchBall extends Command {
   protected void initialize() {
     // extend launch cylender
     BALL_TOOL.extendLauncher();
-    this.targetTime = EXTEND_WAIT_MILLI + date.getTime();
+    timer.restartTimer();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -42,7 +43,7 @@ public class LaunchBall extends Command {
   @Override
   protected boolean isFinished() {
     // hass time elaped?
-    if(date.getTime() > this.targetTime) {
+    if(timer.timeElapsed()) {
       // then return true
       return true;
     }
