@@ -15,10 +15,10 @@ package frc.robot;
  */
 public final class RobotMap {
   // *** Drive Motors CAN ID ***
-  public static final int L_DRIVE_MASTER_CAN = 10;
-  public static final int L_DRIVE_FOLLOWER_CAN = 11;
-  public static final int R_DRIVE_MASTER_CAN = 12;
-  public static final int R_DRIVE_FOLLOWER_CAN = 13;
+  public static final int L_DRIVE_MASTER_CAN = 12; // 12
+  public static final int L_DRIVE_FOLLOWER_CAN = 13; // 13
+  public static final int R_DRIVE_MASTER_CAN = 10; // 10
+  public static final int R_DRIVE_FOLLOWER_CAN = 11; // 11
 
   // *** PCM Ports ***
   // Single Solenoid
