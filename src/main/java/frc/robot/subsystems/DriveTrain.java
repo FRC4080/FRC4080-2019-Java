@@ -68,7 +68,6 @@ public class DriveTrain extends Subsystem {
     leftMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, DEADBAND);
     rightMaster.setParameter(CANSparkMaxLowLevel.ConfigParameter.kInputDeadband, DEADBAND);
 
-    SmartDashboard.putData(this);
   }
 
   @Override

@@ -9,7 +9,6 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 
 /**
@@ -31,7 +30,6 @@ public class HatchTool extends Subsystem {
 
     this.extender_solenoid.set(false);
 
-    SmartDashboard.putData(this);
   }
 
   @Override
