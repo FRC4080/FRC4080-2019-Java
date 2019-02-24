@@ -17,7 +17,6 @@ import frc.robot.subsystems.LiftJack;
 */
 public class ManualDrive extends Command {
 
-  private Joystick driverJoystick = Robot.m_oi.getDriverJoystick();
   private LiftJack liftJack = Robot.liftJack;
 
   private final double JACK_DOWN_SPEED;
@@ -45,11 +44,11 @@ public class ManualDrive extends Command {
   @Override
   protected void execute() {
     if(liftJack.jackExtendedState()){
-      Robot.driveTrain.differentialDrive(driverJoystick.getRawAxis(F310.LEFT_Y) * JACK_DOWN_SPEED,
-                                     driverJoystick.getRawAxis(F310.RIGHT_Y) * JACK_DOWN_SPEED);
+      Robot.driveTrain.differentialDrive(Robot.m_oi.getDriverJoystick().getRawAxis(F310.LEFT_Y) * JACK_DOWN_SPEED,
+                                     Robot.m_oi.getDriverJoystick().getRawAxis(F310.RIGHT_Y) * JACK_DOWN_SPEED);
     } else {
-      Robot.driveTrain.differentialDrive(driverJoystick.getRawAxis(F310.LEFT_Y) * SPEED_MULTIPLYER,
-                                    driverJoystick.getRawAxis(F310.RIGHT_Y) * SPEED_MULTIPLYER);
+      Robot.driveTrain.differentialDrive(Robot.m_oi.getDriverJoystick().getRawAxis(F310.LEFT_Y) * SPEED_MULTIPLYER,
+      Robot.m_oi.getDriverJoystick().getRawAxis(F310.RIGHT_Y) * SPEED_MULTIPLYER);
     }
 
     
