@@ -31,6 +31,7 @@ public class BasicTimer {
     }
     
     public void resetTimer(long targetDuration) {
+        this.targetDuration = targetDuration;
         this.runUntil = Instant.now().plusMillis(targetDuration);
     }
 
