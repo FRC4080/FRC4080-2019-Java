@@ -21,12 +21,13 @@ public final class RobotMap {
   public static final int R_DRIVE_FOLLOWER_CAN = 11; // 11
 
   // *** PCM Ports ***
-  // Single Solenoid
-  public static final int HATCH_CLAW_GRAB = 0;
-  public static final int LAUNCHER_UP = 3;
-  public static final int LIFT_ROBOT = 4;
+  // * Single Solenoids *
+  // Single Valve
+  public static final int LAUNCHER_UP = 1;
+  public static final int LIFT_ROBOT = 0;
   
-  // Double solenoid
-  public static final int HATCH_TOLL_EXTEND = 1; // Automation Direct
-  public static final int LAUNCH_BALL = 2; // Automation Direct
+  // Double Valve
+  public static final int HATCH_CLAW_GRAB = 2;
+  public static final int HATCH_TOLL_EXTEND = 5;
+  public static final int LAUNCH_BALL = 4;
 }
