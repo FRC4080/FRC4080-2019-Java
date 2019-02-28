@@ -22,7 +22,7 @@ public class LaunchBall extends Command {
 
   public LaunchBall() {
     requires(BALL_TOOL);
-    this.EXTEND_WAIT_MILLI = 1000; // wait for 1 second before retracting
+    this.EXTEND_WAIT_MILLI = 1500; // wait for 1.5 second(s) before retracting
     this.timer = new BasicTimer(this.EXTEND_WAIT_MILLI);
   }
 
