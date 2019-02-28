@@ -55,11 +55,14 @@ public class Robot extends TimedRobot {
     dashCommands = new DashCommands();
 
     m_oi = new OI();
+
     m_chooser.setDefaultOption("Default Auto (driver control)", new DriverConnAuto());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
                 camera.setResolution(160, 120);
+
+    System.out.println("Init complete!");
   }
 
   /**
