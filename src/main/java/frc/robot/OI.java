@@ -28,18 +28,18 @@ public class OI {
     operatorBBtn = new JoystickButton(operatorJoystick, F310.B_BTN),
     operatorXBtn = new JoystickButton(operatorJoystick, F310.X_BTN),
     operatorYButton = new JoystickButton(operatorJoystick, F310.Y_BTN),
-    driverRTrigger = new JoystickButton(driverJoystick, F310.RIGHT_TRG),
-    driverLTrigger = new JoystickButton(driverJoystick, F310.LEFT_TRG),
-    operatorRTrigger = new JoystickButton(operatorJoystick, F310.RIGHT_TRG);
+    driverRBumper = new JoystickButton(driverJoystick, F310.R_BUMPER),
+    driverLBumper = new JoystickButton(driverJoystick, F310.L_BUMPER),
+    operatorRBumper = new JoystickButton(operatorJoystick, F310.R_BUMPER);
 
   public OI() {
     operatorABtn.whenPressed(new SetHatchClaw(SetHatchClaw.RELEASE));
     operatorBBtn.whenPressed(new SetHatchClaw(SetHatchClaw.GRAB));
     operatorYButton.whenPressed(new SetHatchToolExtension(SetHatchToolExtension.TOGGLE));
     operatorXBtn.whenPressed(new SetLauncherElevation(SetLauncherElevation.TOGGLE));
-    driverRTrigger.whenPressed(new SetLift(SetLift.TOGGLE));
-    driverLTrigger.whileHeld(new ManualDrive(ManualDrive.REDUCED_SPEED_VALUE));
-    operatorRTrigger.whenPressed(new LaunchBall());
+    driverRBumper.whenPressed(new SetLift(SetLift.TOGGLE));
+    driverLBumper.whileHeld(new ManualDrive(ManualDrive.REDUCED_SPEED_VALUE));
+    operatorRBumper.whenPressed(new LaunchBall());
   }
   
   // There are a few additional built in buttons you can use. Additionally,
