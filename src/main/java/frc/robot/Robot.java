@@ -53,6 +53,10 @@ public class Robot extends TimedRobot {
     ballTool = new BallTool();
     liftJack = new LiftJack();
     dashCommands = new DashCommands();
+    SmartDashboard.putData(driveTrain);
+    SmartDashboard.putData(hatchTool);
+    SmartDashboard.putData(ballTool);
+    SmartDashboard.putData(liftJack);
 
     m_oi = new OI();
 
