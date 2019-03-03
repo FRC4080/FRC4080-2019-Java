@@ -31,7 +31,7 @@ public class DriveTrain extends Subsystem {
   private static final int STALL_LIMIT = 35, FREE_LIMIT = 45;
 
   // motor controller input deadband
-  private static final double DEADBAND = 0.08;
+  private static final double DEADBAND = 0.06;
 
   public DriveTrain() {
     super("Drivetrain");
