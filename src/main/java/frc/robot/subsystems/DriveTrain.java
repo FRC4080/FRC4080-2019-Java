@@ -57,8 +57,8 @@ public class DriveTrain extends Subsystem {
     rightFollower.setSmartCurrentLimit(STALL_LIMIT, FREE_LIMIT);
 
     // set inversion
-    leftMaster.setInverted(false);
-    rightMaster.setInverted(true); 
+    leftMaster.setInverted(true);
+    rightMaster.setInverted(false); 
 
     // set speed to 0
     leftMaster.set(0);
